@@ -1,0 +1,11 @@
+# Optional: run SQL Server in Docker instead of LocalDB.
+# Then start the API with:
+#   ConnectionStrings__Default="Server=localhost,1433;Database=SalesPulse;User Id=sa;Password=SalesPulse!2026;TrustServerCertificate=True" dotnet run
+services:
+  sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "SalesPulse!2026"
+    ports:
+      - "1433:1433"
